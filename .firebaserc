@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ionic-final-project-3ca66": {
+      "hosting": {
+        "app": [
+          "ionic-final-project-3ca66"
+        ]
+      }
+    }
+  }
+}

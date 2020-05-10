@@ -6,11 +6,14 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-// import { AngularFireModule } from '@angular/fire';
+import { AngularFireModule } from '@angular/fire';
+// import { AngularFirestore } from '@angular/fire/firestore';
+// import { firebase } from 'firebase/app';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +21,8 @@ import { environment } from 'src/environments/environment';
   imports: [BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
-    // AngularFireModule.initializeApp(environment.firebase)
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [
     StatusBar,

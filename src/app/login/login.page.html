@@ -1,11 +1,45 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="secondary">
     <ion-title>login</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-Hello world !
+  <br>
+Hey, Welcome !
 
-<ion-button (click)="passit()" type="round" color="warning">Sign In</ion-button>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div>
+
+  <ion-item>
+    <ion-label>
+      Email: 
+    </ion-label>
+    <ion-input [(ngModel)]="user.email" color="warning">Enter your Email id</ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label>
+      Password: 
+    </ion-label>
+    <ion-input type="password" [(ngModel)]="user.password" color="warning">Enter you 6 digit password</ion-input>
+  </ion-item>
+  
+</div>
+
+<div>
+  
+<ion-button (click)="login()" shape="round" color="warning" fill="outline">Sign In</ion-button>
+<br>
+<ion-button (click)="register()" shape="round" color="warning" fill="outline">Sign Up</ion-button>
+</div>
+
+
+
 </ion-content>
