@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { ToastController } from '@ionic/angular';
+
 
 interface User{
   email?: any;
@@ -19,7 +21,9 @@ export class LoginPage implements OnInit {
     password: '',
   };
  
-  constructor(public nav: NavController, public rauth:AngularFireAuth) { }
+  constructor(public nav: NavController, public rauth:AngularFireAuth, public toastctrl: ToastController) { }
+
+
 
   ngOnInit() {
   }
@@ -31,15 +35,34 @@ export class LoginPage implements OnInit {
           this.user.email,
           this.user.password).then(()=>{
             this.nav.navigateForward('tabs');
+          }).then((user)=>{
+            console.log("inhere");
+            this.toast(user);
+          }).catch((err)=>{
+            console.log(err);
           })      
     }
 
       register(){
         const user = this.rauth.auth.createUserWithEmailAndPassword(
           this.user.email,
-          this.user.password
-      )
-            console.log("user");
+          this.user.password).then((user)=>{
+            console.log("here");
+            this.toast(user);
+          }).catch((err)=>{
+            console.log(err);
+          })
+
+
+          
       }
+
+async toast(user) {
+    const toast = await this.toastctrl.create({
+      message: user.err,
+      duration: 2000
+    });
+    toast.present();
+  }
 }
   

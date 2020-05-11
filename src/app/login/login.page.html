@@ -1,45 +1,41 @@
-<ion-header>
-  <ion-toolbar color="secondary">
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
+<ion-content class="back">
   <br>
-Hey, Welcome !
-
-<br>
-<br>
-<br>
+  <img src="/assets/icon/logo.jpeg" class="logo"> 
 <br>
 <br>
 
+<ion-text color="warning"><h4 class="text">Welcome !</h4></ion-text>
 
-<div>
+<br>
+<ion-grid>
+  <ion-row center>
 
-  <ion-item>
-    <ion-label>
-      Email: 
-    </ion-label>
-    <ion-input [(ngModel)]="user.email" color="warning">Enter your Email id</ion-input>
+<div class="sizeInput">
+  <ion-item class="input">
+    <ion-label  position = "floating" color="warning">Enter your Email Id</ion-label>
+      <ion-input [(ngModel)]="user.email" color="warning" clearInput value="clear me"></ion-input>
   </ion-item>
   
-  <ion-item>
-    <ion-label>
-      Password: 
-    </ion-label>
-    <ion-input type="password" [(ngModel)]="user.password" color="warning">Enter you 6 digit password</ion-input>
+<br>  
+  <ion-item class="input">
+    <ion-label  position = "floating" color="warning">Enter a 6 digit password</ion-label>
+   <ion-input  type="password" [(ngModel)]="user.password" color="warning"></ion-input>
   </ion-item>
   
 </div>
 
-<div>
+<div class="sizeButton">
+
+  <br>
   
-<ion-button (click)="login()" shape="round" color="warning" fill="outline">Sign In</ion-button>
+
+  <ion-button (click)="login() ; toast()" shape="round" color="warning" fill="outline">Sign In</ion-button>
 <br>
-<ion-button (click)="register()" shape="round" color="warning" fill="outline">Sign Up</ion-button>
+<br>
+  <ion-button (click)="register() ; toast()" shape="round" color="warning" fill="outline">Sign Up</ion-button>
 </div>
 
-
+</ion-row>
+</ion-grid>
 
 </ion-content>
