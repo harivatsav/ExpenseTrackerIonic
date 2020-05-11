@@ -37,7 +37,7 @@ export class LoginPage implements OnInit {
             this.nav.navigateForward('tabs');
           }).then((user)=>{
             console.log("inhere");
-            this.toast(user);
+            this.toast();
           }).catch((err)=>{
             console.log(err);
           })      
@@ -48,7 +48,7 @@ export class LoginPage implements OnInit {
           this.user.email,
           this.user.password).then((user)=>{
             console.log("here");
-            this.toast(user);
+            this.toast();
           }).catch((err)=>{
             console.log(err);
           })
@@ -57,12 +57,24 @@ export class LoginPage implements OnInit {
           
       }
 
-async toast(user) {
+async toast() {
     const toast = await this.toastctrl.create({
-      message: user.err,
+      message: 'err',
       duration: 2000
     });
     toast.present();
   }
+
+  
+callingButtonSignIn(){
+  this.login()
+  this.toast()
+}
+
+
+callingButtonRegister(){
+  this.register()
+  this.toast()
+}
 }
   

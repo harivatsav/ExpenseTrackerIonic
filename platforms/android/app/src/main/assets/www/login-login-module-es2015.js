@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar color=\"secondary\">\n    <ion-title>login</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <br>\nHey, Welcome !\n\n<br>\n<br>\n<br>\n<br>\n<br>\n\n\n<div>\n\n  <ion-item>\n    <ion-label>\n      Email: \n    </ion-label>\n    <ion-input [(ngModel)]=\"user.email\" color=\"warning\">Enter your Email id</ion-input>\n  </ion-item>\n  \n  <ion-item>\n    <ion-label>\n      Password: \n    </ion-label>\n    <ion-input type=\"password\" [(ngModel)]=\"user.password\" color=\"warning\">Enter you 6 digit password</ion-input>\n  </ion-item>\n  \n</div>\n\n<div>\n  \n<ion-button (click)=\"login()\" shape=\"round\" color=\"warning\" fill=\"outline\">Sign In</ion-button>\n<br>\n<ion-button (click)=\"register()\" shape=\"round\" color=\"warning\" fill=\"outline\">Sign Up</ion-button>\n</div>\n\n\n\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content class=\"back\">\n  <br>\n  <img src=\"/assets/icon/logo.jpeg\" class=\"logo\"> \n<br>\n<br>\n\n<ion-text color=\"warning\"><h4 class=\"text\">Welcome !</h4></ion-text>\n\n<br>\n<ion-grid>\n  \n  <ion-row center>\n\n<div class=\"sizeInput\">\n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter your Email Id</ion-label>\n      <ion-input [(ngModel)]=\"user.email\" color=\"warning\" clearInput value=\"clear me\"></ion-input>\n  </ion-item>\n  \n<br>  \n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter a 6 digit password</ion-label>\n   <ion-input  type=\"password\" [(ngModel)]=\"user.password\" color=\"warning\"></ion-input>\n  </ion-item>\n  \n</div>\n\n<div class=\"sizeButton\">\n\n  <br>\n  \n\n  <ion-button (click)=\"callingButtonSignIn()\" shape=\"round\" color=\"warning\" fill=\"outline\">Sign In</ion-button>\n<br>\n<br>\n  <ion-button (click)=\"callingButtonRegister()\" shape=\"round\" color=\"warning\" fill=\"outline\">Sign Up</ion-button>\n</div>\n\n</ion-row>\n</ion-grid>\n\n</ion-content>\n");
 
 /***/ }),
 
@@ -101,7 +101,7 @@ LoginPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2xvZ2luL2xvZ2luLnBhZ2Uuc2NzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = (".back {\n  --background: #6b0f1a;\n  --background: linear-gradient(315deg, #6b0f1a 0%, #b91372 74%);\n}\n\n.logo {\n  padding-left: 80px;\n}\n\n.input {\n  --border-radius: 30px;\n  --box-shadow: 10px;\n}\n\n.sizeInput {\n  width: 250px;\n  margin-left: 55px;\n}\n\n.sizeButton {\n  margin-left: 115px;\n}\n\n.text {\n  text-decoration: underline;\n  margin-left: 130px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy92YXRzYXYvRGVza3RvcC9FeHBlbnNlVHJhY2tlcklvbmljL3NyYy9hcHAvbG9naW4vbG9naW4ucGFnZS5zY3NzIiwic3JjL2FwcC9sb2dpbi9sb2dpbi5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFFSSxxQkFBQTtFQUNBLDhEQUFBO0FDQUo7O0FESUE7RUFDSSxrQkFBQTtBQ0RKOztBREtBO0VBQ0kscUJBQUE7RUFDQSxrQkFBQTtBQ0ZKOztBRFlBO0VBQ0ksWUFBQTtFQUNBLGlCQUFBO0FDVEo7O0FEYUE7RUFDSSxrQkFBQTtBQ1ZKOztBRGFBO0VBQ0ksMEJBQUE7RUFDQSxrQkFBQTtBQ1ZKIiwiZmlsZSI6InNyYy9hcHAvbG9naW4vbG9naW4ucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmJhY2t7XG4gICAgXG4gICAgLS1iYWNrZ3JvdW5kOiAjNmIwZjFhO1xuICAgIC0tYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDMxNWRlZywgIzZiMGYxYSAwJSwgI2I5MTM3MiA3NCUpO1xufVxuXG5cbi5sb2dve1xuICAgIHBhZGRpbmctbGVmdDogODBweCA7XG4gICAgXG59XG5cbi5pbnB1dHtcbiAgICAtLWJvcmRlci1yYWRpdXM6IDMwcHg7XG4gICAgLS1ib3gtc2hhZG93OiAxMHB4O1xuLy8gICAgIC0tYm9yZGVyLWNvbG9yOiB2YXIoLS1pb24tY29sb3ItbWVkaXVtLXNoYWRlKTtcbi8vICAgLS1ib3JkZXItcmFkaXVzOiAzcHg7XG4vLyAgIC0tYm9yZGVyLXdpZHRoOiAxcHg7XG4vLyAgIC0tYm94LXNoYWRvdzogMnB4IGdyYXk7XG4vLyAgIC0taGlnaGxpZ2h0LWhlaWdodDogMDtcbi8vIC8vICAgLS1iYWNrZ3JvdW5kOiAjZjhmOWZhO1xuXG59XG5cbi5zaXplSW5wdXR7XG4gICAgd2lkdGg6IDI1MHB4O1xuICAgIG1hcmdpbi1sZWZ0OiA1NXB4O1xuICAgIFxufVxuXG4uc2l6ZUJ1dHRvbntcbiAgICBtYXJnaW4tbGVmdDogMTE1cHg7XG59XG5cbi50ZXh0e1xuICAgIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lO1xuICAgIG1hcmdpbi1sZWZ0OiAxMzBweDtcbn0iLCIuYmFjayB7XG4gIC0tYmFja2dyb3VuZDogIzZiMGYxYTtcbiAgLS1iYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoMzE1ZGVnLCAjNmIwZjFhIDAlLCAjYjkxMzcyIDc0JSk7XG59XG5cbi5sb2dvIHtcbiAgcGFkZGluZy1sZWZ0OiA4MHB4O1xufVxuXG4uaW5wdXQge1xuICAtLWJvcmRlci1yYWRpdXM6IDMwcHg7XG4gIC0tYm94LXNoYWRvdzogMTBweDtcbn1cblxuLnNpemVJbnB1dCB7XG4gIHdpZHRoOiAyNTBweDtcbiAgbWFyZ2luLWxlZnQ6IDU1cHg7XG59XG5cbi5zaXplQnV0dG9uIHtcbiAgbWFyZ2luLWxlZnQ6IDExNXB4O1xufVxuXG4udGV4dCB7XG4gIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lO1xuICBtYXJnaW4tbGVmdDogMTMwcHg7XG59Il19 */");
 
 /***/ }),
 
@@ -123,10 +123,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 let LoginPage = class LoginPage {
-    constructor(nav, rauth) {
+    constructor(nav, rauth, toastctrl) {
         this.nav = nav;
         this.rauth = rauth;
+        this.toastctrl = toastctrl;
         this.user = {
             email: '',
             password: '',
@@ -137,16 +139,43 @@ let LoginPage = class LoginPage {
     login() {
         const user = this.rauth.auth.signInWithEmailAndPassword(this.user.email, this.user.password).then(() => {
             this.nav.navigateForward('tabs');
+        }).then((user) => {
+            console.log("inhere");
+            this.toast();
+        }).catch((err) => {
+            console.log(err);
         });
     }
     register() {
-        const user = this.rauth.auth.createUserWithEmailAndPassword(this.user.email, this.user.password);
-        console.log("user");
+        const user = this.rauth.auth.createUserWithEmailAndPassword(this.user.email, this.user.password).then((user) => {
+            console.log("here");
+            this.toast();
+        }).catch((err) => {
+            console.log(err);
+        });
+    }
+    toast() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const toast = yield this.toastctrl.create({
+                message: 'err',
+                duration: 2000
+            });
+            toast.present();
+        });
+    }
+    callingButtonSignIn() {
+        this.login();
+        this.toast();
+    }
+    callingButtonRegister() {
+        this.register();
+        this.toast();
     }
 };
 LoginPage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
-    { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"] }
+    { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"] }
 ];
 LoginPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -154,7 +183,7 @@ LoginPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./login.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/login/login.page.html")).default,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./login.page.scss */ "./src/app/login/login.page.scss")).default]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"]])
 ], LoginPage);
 
 
