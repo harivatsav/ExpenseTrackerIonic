@@ -13,19 +13,27 @@
 
 <ion-content [fullscreen]="true">
  
-  <ion-list>
-    <ion-item-sliding *ngFor="let item of expenses">
-      <ion-item button [routerLink]="['/details',item.id]">
-      <ion-label>{{item.expense}}</ion-label>
+  
+  <ion-item-sliding *ngFor="let item of expenses">
+    
+    <ion-item-options side="start" (click)="remove(item)">
+      <ion-item-option color="danger" expandable>
+        Delete
+      </ion-item-option>
+    </ion-item-options>
+
+    <ion-item>
+      <ion-label button [routerLink]="['/details',item.id]">{{item.expense}}</ion-label>
       <ion-text slot="end" color="warning">{{item.dollars}}$</ion-text>
-      </ion-item>
+    </ion-item>
 
-        <ion-item-options (click)="remove(item)" color="danger" side="end">Delete</ion-item-options>
-        <ion-item-options (click)="remove(item)" color="secondary" side="start">Split</ion-item-options>
-      
-    </ion-item-sliding>
-  </ion-list>
-
+    <ion-item-options side="end" (click)="presentAlertPrompt()">
+      <ion-item-option color="warning" expandable>
+        Split
+      </ion-item-option>
+    </ion-item-options>
+  
+  </ion-item-sliding>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button routerLink="/details" routerDirection="forward" color="warning">

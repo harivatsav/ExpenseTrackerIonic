@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHerf='/'></ion-back-button>\n      </ion-buttons>\n    <ion-title>details</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n<ion-list>\n\n  <ion-item>\n    <ion-input placeholder=\"Expense\" [(ngModel)]= \"expenses.expense\"></ion-input>\n  </ion-item>\n\n  \n<ion-item>\n    <ion-input placeholder=\"Expense\" [(ngModel)]= \"expenses.dollars\"></ion-input>\n  </ion-item>\n\n  <ion-button (click)=\"saveExpenses()\">Save</ion-button>\n</ion-list>\n\n\n</ion-content>\n";
+    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHerf='/'></ion-back-button>\n      </ion-buttons>\n    <ion-title>details</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n<ion-list>\n\n  <ion-item>\n    <ion-input placeholder=\"Expense\" [(ngModel)]= \"expenses.expense\"></ion-input>\n  </ion-item>\n\n  \n<ion-item>\n    <ion-input placeholder=\"Dollars\" [(ngModel)]= \"expenses.dollars\"></ion-input>\n  </ion-item>\n\n  <ion-button (click)=\"saveExpenses()\">Save</ion-button>\n</ion-list>\n\n\n</ion-content>\n";
     /***/
   },
 

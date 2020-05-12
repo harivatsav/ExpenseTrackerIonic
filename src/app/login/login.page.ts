@@ -5,8 +5,8 @@ import { ToastController } from '@ionic/angular';
 
 
 interface User{
-  email?: any;
-  password?: any;
+  email: any;
+  password: any;
 }
 
 @Component({
@@ -35,46 +35,44 @@ export class LoginPage implements OnInit {
           this.user.email,
           this.user.password).then(()=>{
             this.nav.navigateForward('tabs');
-          }).then((user)=>{
-            console.log("inhere");
-            this.toast();
-          }).catch((err)=>{
-            console.log(err);
-          })      
+          })
     }
 
       register(){
         const user = this.rauth.auth.createUserWithEmailAndPassword(
           this.user.email,
-          this.user.password).then((user)=>{
-            console.log("here");
-            this.toast();
-          }).catch((err)=>{
-            console.log(err);
-          })
+          this.user.password).then(()=>{
+            this.nav.navigateRoot('login');
+            })
+          }
 
 
           
-      }
+      
 
-async toast() {
-    const toast = await this.toastctrl.create({
-      message: 'err',
-      duration: 2000
-    });
-    toast.present();
-  }
+// async toast() {
+//     const toast = await this.toastctrl.create({
+//       message: 'err',
+//       duration: 2000
+//     });
+//     toast.present();
+//   }
 
   
-callingButtonSignIn(){
-  this.login()
-  this.toast()
-}
+// callingButtonSignIn(){
+//   this.login()
+//   this.toast()
+// }
 
 
-callingButtonRegister(){
-  this.register()
-  this.toast()
+// callingButtonRegister(){
+//   this.register()
+//   this.toast()
+// }
+
+signUp(){
+  this.nav.navigateRoot('sign-up');
 }
+
 }
   

@@ -710,10 +710,7 @@ const routes = [
     { path: '', loadChildren: () => __webpack_require__.e(/*! import() | tabs-tabs-module */ "tabs-tabs-module").then(__webpack_require__.bind(null, /*! ./tabs/tabs.module */ "./src/app/tabs/tabs.module.ts")).then(m => m.TabsPageModule) },
     { path: 'details', loadChildren: () => Promise.all(/*! import() | details-details-module */[__webpack_require__.e("common"), __webpack_require__.e("details-details-module")]).then(__webpack_require__.bind(null, /*! ./details/details.module */ "./src/app/details/details.module.ts")).then(m => m.DetailsPageModule) },
     { path: 'details/:id', loadChildren: () => Promise.all(/*! import() | details-details-module */[__webpack_require__.e("common"), __webpack_require__.e("details-details-module")]).then(__webpack_require__.bind(null, /*! ./details/details.module */ "./src/app/details/details.module.ts")).then(m => m.DetailsPageModule) },
-    {
-        path: 'sign-up',
-        loadChildren: () => __webpack_require__.e(/*! import() | sign-up-sign-up-module */ "sign-up-sign-up-module").then(__webpack_require__.bind(null, /*! ./sign-up/sign-up.module */ "./src/app/sign-up/sign-up.module.ts")).then(m => m.SignUpPageModule)
-    },
+    { path: 'sign-up', loadChildren: () => __webpack_require__.e(/*! import() | sign-up-sign-up-module */ "sign-up-sign-up-module").then(__webpack_require__.bind(null, /*! ./sign-up/sign-up.module */ "./src/app/sign-up/sign-up.module.ts")).then(m => m.SignUpPageModule) },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };

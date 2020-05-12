@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-content class=\"back\">\n  <br>\n  <img src=\"/assets/icon/logo.jpeg\" class=\"logo\"> \n<br>\n<br>\n\n<ion-text color=\"warning\"><h4 class=\"text\">Welcome !</h4></ion-text>\n\n<br>\n<ion-grid>\n  \n  <ion-row center>\n\n<div class=\"sizeInput\">\n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter your Email Id</ion-label>\n      <ion-input [(ngModel)]=\"user.email\" color=\"warning\" clearInput value=\"clear me\"></ion-input>\n  </ion-item>\n  \n<br>  \n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter a 6 digit password</ion-label>\n   <ion-input  type=\"password\" [(ngModel)]=\"user.password\" color=\"warning\"></ion-input>\n  </ion-item>\n  \n</div>\n\n<div class=\"sizeButton\">\n\n  <br>\n  \n\n<ion-button (click)=\"callingButtonSignIn()\" shape=\"round\" color=\"warning\" fill=\"outline\">Sign In</ion-button>\n<br>\n<br>\n<ion-button (click)=\"callingButtonRegister()\" shape=\"round\" color=\"warning\" fill=\"outline\">Sign Up</ion-button>\n</div>\n\n</ion-row>\n</ion-grid>\n\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content class=\"back\">\n  <br>\n  <img src=\"/assets/icon/logo.jpeg\" class=\"logo\"> \n<br>\n<br>\n\n<ion-text color=\"warning\"><h4 class=\"text\">Welcome !</h4></ion-text>\n\n<br>\n<ion-grid>\n  \n  <ion-row center>\n\n<div class=\"sizeInput\">\n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter your Email Id</ion-label>\n      <ion-input [(ngModel)]=\"user.email\" color=\"warning\" clearInput value=\"clear me\"></ion-input>\n  </ion-item>\n  \n<br>  \n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter a 6 digit password</ion-label>\n   <ion-input  type=\"password\" [(ngModel)]=\"user.password\" color=\"warning\"></ion-input>\n  </ion-item>\n  \n</div>\n\n<div class=\"sizeButton\">\n\n  <br>\n  \n\n<ion-button (click)=\"login()\" shape=\"round\" color=\"warning\" fill=\"outline\">Sign In</ion-button>\n<br>\n<br>\n<ion-button (click)=\"signUp()\" shape=\"round\" color=\"warning\" fill=\"outline\">Sign Up</ion-button>\n</div>\n\n</ion-row>\n</ion-grid>\n\n</ion-content>\n");
 
 /***/ }),
 
@@ -139,37 +139,30 @@ let LoginPage = class LoginPage {
     login() {
         const user = this.rauth.auth.signInWithEmailAndPassword(this.user.email, this.user.password).then(() => {
             this.nav.navigateForward('tabs');
-        }).then((user) => {
-            console.log("inhere");
-            this.toast();
-        }).catch((err) => {
-            console.log(err);
         });
     }
     register() {
-        const user = this.rauth.auth.createUserWithEmailAndPassword(this.user.email, this.user.password).then((user) => {
-            console.log("here");
-            this.toast();
-        }).catch((err) => {
-            console.log(err);
+        const user = this.rauth.auth.createUserWithEmailAndPassword(this.user.email, this.user.password).then(() => {
+            this.nav.navigateRoot('login');
         });
     }
-    toast() {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            const toast = yield this.toastctrl.create({
-                message: 'err',
-                duration: 2000
-            });
-            toast.present();
-        });
-    }
-    callingButtonSignIn() {
-        this.login();
-        this.toast();
-    }
-    callingButtonRegister() {
-        this.register();
-        this.toast();
+    // async toast() {
+    //     const toast = await this.toastctrl.create({
+    //       message: 'err',
+    //       duration: 2000
+    //     });
+    //     toast.present();
+    //   }
+    // callingButtonSignIn(){
+    //   this.login()
+    //   this.toast()
+    // }
+    // callingButtonRegister(){
+    //   this.register()
+    //   this.toast()
+    // }
+    signUp() {
+        this.nav.navigateRoot('sign-up');
     }
 };
 LoginPage.ctorParameters = () => [

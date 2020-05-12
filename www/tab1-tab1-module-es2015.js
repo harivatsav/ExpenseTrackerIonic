@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\n  <ion-toolbar color=\"danger\">\n    <ion-title>\n      Tab 1\n    </ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button (click)=\"openFirst()\" autoHide=\"false\">\n        <ion-icon name=\"menu-sharp\"></ion-icon>\n      </ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n \n  <ion-list>\n    <ion-item-sliding *ngFor=\"let item of expenses\">\n      <ion-item button [routerLink]=\"['/details',item.id]\">\n      <ion-label>{{item.expense}}</ion-label>\n      <ion-text slot=\"end\" color=\"warning\">{{item.dollars}}$</ion-text>\n      </ion-item>\n\n        <ion-item-options (click)=\"remove(item)\" color=\"danger\" side=\"end\">Delete</ion-item-options>\n        <ion-item-options (click)=\"remove(item)\" color=\"secondary\" side=\"start\">Split</ion-item-options>\n      \n    </ion-item-sliding>\n  </ion-list>\n\n\n  <ion-fab vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\n    <ion-fab-button routerLink=\"/details\" routerDirection=\"forward\" color=\"warning\">\n    <ion-icon name=\"add\"></ion-icon>\n  </ion-fab-button>\n  </ion-fab>\n\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\n  <ion-toolbar color=\"danger\">\n    <ion-title>\n      Tab 1\n    </ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button (click)=\"openFirst()\" autoHide=\"false\">\n        <ion-icon name=\"menu-sharp\"></ion-icon>\n      </ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n \n  \n  <ion-item-sliding *ngFor=\"let item of expenses\">\n    \n    <ion-item-options side=\"start\" (click)=\"remove(item)\">\n      <ion-item-option color=\"danger\" expandable>\n        Delete\n      </ion-item-option>\n    </ion-item-options>\n\n    <ion-item>\n      <ion-label button [routerLink]=\"['/details',item.id]\">{{item.expense}}</ion-label>\n      <ion-text slot=\"end\" color=\"warning\">{{item.dollars}}$</ion-text>\n    </ion-item>\n\n    <ion-item-options side=\"end\" (click)=\"presentAlertPrompt()\">\n      <ion-item-option color=\"warning\" expandable>\n        Split\n      </ion-item-option>\n    </ion-item-options>\n  \n  </ion-item-sliding>\n\n  <ion-fab vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\n    <ion-fab-button routerLink=\"/details\" routerDirection=\"forward\" color=\"warning\">\n    <ion-icon name=\"add\"></ion-icon>\n  </ion-fab-button>\n  </ion-fab>\n\n</ion-content>");
 
 /***/ }),
 
@@ -128,12 +128,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 let Tab1Page = class Tab1Page {
-    constructor(rauth, nav, menu, cashService) {
+    constructor(rauth, nav, menu, cashService, actionSheetController, alertController) {
         this.rauth = rauth;
         this.nav = nav;
         this.menu = menu;
         this.cashService = cashService;
+        this.actionSheetController = actionSheetController;
+        this.alertController = alertController;
     }
     ngOnInit() {
         this.cashService.getExpenses().subscribe(res => {
@@ -147,12 +151,56 @@ let Tab1Page = class Tab1Page {
         this.menu.enable(true, 'first');
         this.menu.open('first');
     }
+    presentAlertPrompt() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const alert = yield this.alertController.create({
+                header: 'Split With?',
+                inputs: [
+                    {
+                        name: 'name1',
+                        type: 'text',
+                        id: 'name1-id',
+                        placeholder: 'Enter Name'
+                    },
+                    {
+                        name: 'name2',
+                        type: 'text',
+                        id: 'name2-id',
+                        placeholder: 'Amount'
+                    },
+                    {
+                        name: 'name3',
+                        type: 'date'
+                    },
+                ],
+                buttons: [
+                    {
+                        text: 'Cancel',
+                        role: 'cancel',
+                        cssClass: 'warning',
+                        handler: () => {
+                            console.log('Confirm Cancel');
+                        }
+                    }, {
+                        text: 'Ok',
+                        handler: (data) => {
+                            console.log(data.name1);
+                            console.log(data.name2);
+                            console.log(data.name3);
+                        }
+                    }
+                ]
+            }).then(data => data.present());
+        });
+    }
 };
 Tab1Page.ctorParameters = () => [
     { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__["AngularFireAuth"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["MenuController"] },
-    { type: _cash_service__WEBPACK_IMPORTED_MODULE_4__["CashService"] }
+    { type: _cash_service__WEBPACK_IMPORTED_MODULE_4__["CashService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ActionSheetController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"] }
 ];
 Tab1Page = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -163,7 +211,9 @@ Tab1Page = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__["AngularFireAuth"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["MenuController"],
-        _cash_service__WEBPACK_IMPORTED_MODULE_4__["CashService"]])
+        _cash_service__WEBPACK_IMPORTED_MODULE_4__["CashService"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ActionSheetController"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"]])
 ], Tab1Page);
 
 

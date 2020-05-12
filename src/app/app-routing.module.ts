@@ -11,10 +11,8 @@ const routes: Routes = [
   {path: 'details',loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)},
   
   {path: 'details/:id',loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)},
-  {
-    path: 'sign-up',
-    loadChildren: () => import('./sign-up/sign-up.module').then( m => m.SignUpPageModule)
-  },
+  
+  {path: 'sign-up',loadChildren: () => import('./sign-up/sign-up.module').then( m => m.SignUpPageModule)},
   
   
 ];

@@ -1,9 +1,54 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>signUp</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="back">
+  
+  <img src="/assets/icon/logo.jpeg" class="logo"> 
+<br>
 
-<ion-content>
 
-</ion-content>
+<ion-text color="warning"><h4 class="text">Enter the required Fields</h4></ion-text>
+
+<br>
+
+<div class="sizeInput">
+  <ion-item class="input">
+    <ion-label  position = "floating" color="warning">Enter your First Name</ion-label>
+      <ion-input [(ngModel)]="user.firstName" color="warning" clearInput value="clear me"></ion-input>
+  </ion-item>
+<br>
+
+  <div class="sizeInput">
+  <ion-item class="input">
+    <ion-label  position = "floating" color="warning">Enter your Last Name</ion-label>
+      <ion-input [(ngModel)]="user.lastName" color="warning" clearInput value="clear me"></ion-input>
+  </ion-item>
+  
+<br>
+  <div class="sizeInput">
+  <ion-item class="input">
+    <ion-label  position = "floating" color="warning">Enter your Phone Number</ion-label>
+      <ion-input [(ngModel)]="user.phoneNumber" color="warning" clearInput value="clear me"></ion-input>
+  </ion-item>
+
+
+<br>
+
+  <!-- <div class="sizeInput"> -->
+  <ion-item class="input">
+    <ion-label  position = "floating" color="warning">Enter your Email Id</ion-label>
+      <ion-input [(ngModel)]="user.email" color="warning" clearInput value="clear me"></ion-input>
+  </ion-item>
+  
+<br>  
+  <ion-item class="input">
+    <ion-label  position = "floating" color="warning">Enter a 6 digit password</ion-label>
+   <ion-input  type="password" [(ngModel)]="user.password" color="warning"></ion-input>
+  </ion-item>
+  
+
+<div class="sizeButton">
+<ion-button (click)="register()" shape="round" color="warning" fill="outline">Sign Up</ion-button>
+</div>
+
+
+
+
+

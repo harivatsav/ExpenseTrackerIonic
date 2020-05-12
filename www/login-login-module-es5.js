@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-content class=\"back\">\n  <br>\n  <img src=\"/assets/icon/logo.jpeg\" class=\"logo\"> \n<br>\n<br>\n\n<ion-text color=\"warning\"><h4 class=\"text\">Welcome !</h4></ion-text>\n\n<br>\n<ion-grid>\n  \n  <ion-row center>\n\n<div class=\"sizeInput\">\n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter your Email Id</ion-label>\n      <ion-input [(ngModel)]=\"user.email\" color=\"warning\" clearInput value=\"clear me\"></ion-input>\n  </ion-item>\n  \n<br>  \n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter a 6 digit password</ion-label>\n   <ion-input  type=\"password\" [(ngModel)]=\"user.password\" color=\"warning\"></ion-input>\n  </ion-item>\n  \n</div>\n\n<div class=\"sizeButton\">\n\n  <br>\n  \n\n<ion-button (click)=\"callingButtonSignIn()\" shape=\"round\" color=\"warning\" fill=\"outline\">Sign In</ion-button>\n<br>\n<br>\n<ion-button (click)=\"callingButtonRegister()\" shape=\"round\" color=\"warning\" fill=\"outline\">Sign Up</ion-button>\n</div>\n\n</ion-row>\n</ion-grid>\n\n</ion-content>\n";
+    __webpack_exports__["default"] = "<ion-content class=\"back\">\n  <br>\n  <img src=\"/assets/icon/logo.jpeg\" class=\"logo\"> \n<br>\n<br>\n\n<ion-text color=\"warning\"><h4 class=\"text\">Welcome !</h4></ion-text>\n\n<br>\n<ion-grid>\n  \n  <ion-row center>\n\n<div class=\"sizeInput\">\n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter your Email Id</ion-label>\n      <ion-input [(ngModel)]=\"user.email\" color=\"warning\" clearInput value=\"clear me\"></ion-input>\n  </ion-item>\n  \n<br>  \n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter a 6 digit password</ion-label>\n   <ion-input  type=\"password\" [(ngModel)]=\"user.password\" color=\"warning\"></ion-input>\n  </ion-item>\n  \n</div>\n\n<div class=\"sizeButton\">\n\n  <br>\n  \n\n<ion-button (click)=\"login()\" shape=\"round\" color=\"warning\" fill=\"outline\">Sign In</ion-button>\n<br>\n<br>\n<ion-button (click)=\"signUp()\" shape=\"round\" color=\"warning\" fill=\"outline\">Sign Up</ion-button>\n</div>\n\n</ion-row>\n</ion-grid>\n\n</ion-content>\n";
     /***/
   },
 
@@ -245,12 +245,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var user = this.rauth.auth.signInWithEmailAndPassword(this.user.email, this.user.password).then(function () {
             _this.nav.navigateForward('tabs');
-          }).then(function (user) {
-            console.log("inhere");
-
-            _this.toast();
-          })["catch"](function (err) {
-            console.log(err);
           });
         }
       }, {
@@ -258,52 +252,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function register() {
           var _this2 = this;
 
-          var user = this.rauth.auth.createUserWithEmailAndPassword(this.user.email, this.user.password).then(function (user) {
-            console.log("here");
-
-            _this2.toast();
-          })["catch"](function (err) {
-            console.log(err);
+          var user = this.rauth.auth.createUserWithEmailAndPassword(this.user.email, this.user.password).then(function () {
+            _this2.nav.navigateRoot('login');
           });
-        }
-      }, {
-        key: "toast",
-        value: function toast() {
-          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-            var toast;
-            return regeneratorRuntime.wrap(function _callee$(_context) {
-              while (1) {
-                switch (_context.prev = _context.next) {
-                  case 0:
-                    _context.next = 2;
-                    return this.toastctrl.create({
-                      message: 'err',
-                      duration: 2000
-                    });
+        } // async toast() {
+        //     const toast = await this.toastctrl.create({
+        //       message: 'err',
+        //       duration: 2000
+        //     });
+        //     toast.present();
+        //   }
+        // callingButtonSignIn(){
+        //   this.login()
+        //   this.toast()
+        // }
+        // callingButtonRegister(){
+        //   this.register()
+        //   this.toast()
+        // }
 
-                  case 2:
-                    toast = _context.sent;
-                    toast.present();
-
-                  case 4:
-                  case "end":
-                    return _context.stop();
-                }
-              }
-            }, _callee, this);
-          }));
-        }
       }, {
-        key: "callingButtonSignIn",
-        value: function callingButtonSignIn() {
-          this.login();
-          this.toast();
-        }
-      }, {
-        key: "callingButtonRegister",
-        value: function callingButtonRegister() {
-          this.register();
-          this.toast();
+        key: "signUp",
+        value: function signUp() {
+          this.nav.navigateRoot('sign-up');
         }
       }]);
 
