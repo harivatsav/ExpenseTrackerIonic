@@ -38,13 +38,13 @@ export class LoginPage implements OnInit {
           })
     }
 
-      register(){
-        const user = this.rauth.auth.createUserWithEmailAndPassword(
-          this.user.email,
-          this.user.password).then(()=>{
-            this.nav.navigateRoot('login');
-            })
-          }
+      // register(){
+      //   const user = this.rauth.auth.createUserWithEmailAndPassword(
+      //     this.user.email,
+      //     this.user.password).then(()=>{
+      //       this.nav.navigateRoot('login');
+      //       })
+      //     }
 
 
           

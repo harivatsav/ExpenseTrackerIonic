@@ -8,8 +8,8 @@ interface User{
   email: any;
   password: any;
   firstName: any;
-    lastName: any;
-    phoneNumber: any;
+  lastName: any;
+  phoneNumber: any;
 }
 
 @Component({
@@ -37,7 +37,12 @@ export class SignUpPage implements OnInit {
     const user = this.rauth.auth.createUserWithEmailAndPassword(
       this.user.email,
       this.user.password).then(()=>{
-        this.nav.navigateRoot('login');
+      this.nav.navigateRoot('');
         })
       }
+
+      back(){
+        this.nav.navigateBack('');
+      }
+
 }
