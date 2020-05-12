@@ -306,6 +306,65 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/app/cash.service.ts":
+/*!*********************************!*\
+  !*** ./src/app/cash.service.ts ***!
+  \*********************************/
+/*! exports provided: CashService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CashService", function() { return CashService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/firestore/es2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+let CashService = class CashService {
+    constructor(database) {
+        this.expenseCollection = database.collection('EXPENSES');
+        this.expenses = this.expenseCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
+            return actions.map(a => {
+                const data = a.payload.doc.data();
+                const id = a.payload.doc.id;
+                return Object.assign({ id }, data);
+            });
+        }));
+    }
+    getExpenses() {
+        return this.expenses;
+    }
+    getExp(id) {
+        return this.expenseCollection.doc(id).valueChanges();
+    }
+    updateExpenses(expenses, id) {
+        return this.expenseCollection.doc(id).update(expenses);
+    }
+    addExpenses(expenses) {
+        return this.expenseCollection.add(expenses);
+    }
+    removeExpenses(id) {
+        return this.expenseCollection.doc(id).delete();
+    }
+};
+CashService.ctorParameters = () => [
+    { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"] }
+];
+CashService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]])
+], CashService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/explore-container/explore-container.component.scss":
 /*!********************************************************************!*\
   !*** ./src/app/explore-container/explore-container.component.scss ***!

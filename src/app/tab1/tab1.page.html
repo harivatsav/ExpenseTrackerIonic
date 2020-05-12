@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="danger">
     <ion-title>
       Tab 1
     </ion-title>
@@ -12,11 +12,25 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+ 
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of expenses">
+      <ion-item button [routerLink]="['/details',item.id]">
+      <ion-label>{{item.expense}}</ion-label>
+      <ion-text slot="end" color="warning">{{item.dollars}}$</ion-text>
+      </ion-item>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+        <ion-item-options (click)="remove(item)" color="danger" side="end">Delete</ion-item-options>
+        <ion-item-options (click)="remove(item)" color="secondary" side="start">Split</ion-item-options>
+      
+    </ion-item-sliding>
+  </ion-list>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/details" routerDirection="forward" color="warning">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+  </ion-fab>
+
 </ion-content>

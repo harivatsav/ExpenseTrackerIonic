@@ -483,6 +483,108 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
 
   /***/
+  "./src/app/cash.service.ts":
+  /*!*********************************!*\
+    !*** ./src/app/cash.service.ts ***!
+    \*********************************/
+
+  /*! exports provided: CashService */
+
+  /***/
+  function srcAppCashServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "CashService", function () {
+      return CashService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/fire/firestore */
+    "./node_modules/@angular/fire/firestore/es2015/index.js");
+    /* harmony import */
+
+
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! rxjs/operators */
+    "./node_modules/rxjs/_esm2015/operators/index.js");
+
+    var CashService = /*#__PURE__*/function () {
+      function CashService(database) {
+        _classCallCheck(this, CashService);
+
+        this.expenseCollection = database.collection('EXPENSES');
+        this.expenses = this.expenseCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
+          return actions.map(function (a) {
+            var data = a.payload.doc.data();
+            var id = a.payload.doc.id;
+            return Object.assign({
+              id: id
+            }, data);
+          });
+        }));
+      }
+
+      _createClass(CashService, [{
+        key: "getExpenses",
+        value: function getExpenses() {
+          return this.expenses;
+        }
+      }, {
+        key: "getExp",
+        value: function getExp(id) {
+          return this.expenseCollection.doc(id).valueChanges();
+        }
+      }, {
+        key: "updateExpenses",
+        value: function updateExpenses(expenses, id) {
+          return this.expenseCollection.doc(id).update(expenses);
+        }
+      }, {
+        key: "addExpenses",
+        value: function addExpenses(expenses) {
+          return this.expenseCollection.add(expenses);
+        }
+      }, {
+        key: "removeExpenses",
+        value: function removeExpenses(id) {
+          return this.expenseCollection.doc(id)["delete"]();
+        }
+      }]);
+
+      return CashService;
+    }();
+
+    CashService.ctorParameters = function () {
+      return [{
+        type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]
+      }];
+    };
+
+    CashService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]])], CashService);
+    /***/
+  },
+
+  /***/
   "./src/app/explore-container/explore-container.component.scss":
   /*!********************************************************************!*\
     !*** ./src/app/explore-container/explore-container.component.scss ***!

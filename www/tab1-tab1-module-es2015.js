@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\n  <ion-toolbar>\n    <ion-title>\n      Tab 1\n    </ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button (click)=\"openFirst()\" autoHide=\"false\">\n        <ion-icon name=\"menu-sharp\"></ion-icon>\n      </ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\">Tab 1</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <app-explore-container name=\"Tab 1 page\"></app-explore-container>\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\n  <ion-toolbar color=\"danger\">\n    <ion-title>\n      Tab 1\n    </ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button (click)=\"openFirst()\" autoHide=\"false\">\n        <ion-icon name=\"menu-sharp\"></ion-icon>\n      </ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n \n  <ion-list>\n    <ion-item-sliding *ngFor=\"let item of expenses\">\n      <ion-item button [routerLink]=\"['/details',item.id]\">\n      <ion-label>{{item.expense}}</ion-label>\n      <ion-text slot=\"end\" color=\"warning\">{{item.dollars}}$</ion-text>\n      </ion-item>\n\n        <ion-item-options (click)=\"remove(item)\" color=\"danger\" side=\"end\">Delete</ion-item-options>\n        <ion-item-options (click)=\"remove(item)\" color=\"secondary\" side=\"start\">Split</ion-item-options>\n      \n    </ion-item-sliding>\n  </ion-list>\n\n\n  <ion-fab vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\n    <ion-fab-button routerLink=\"/details\" routerDirection=\"forward\" color=\"warning\">\n    <ion-icon name=\"add\"></ion-icon>\n  </ion-fab-button>\n  </ion-fab>\n\n</ion-content>");
 
 /***/ }),
 
@@ -122,15 +122,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/auth/es2015/index.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/fesm2015/ionic-angular.js");
+/* harmony import */ var _cash_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../cash.service */ "./src/app/cash.service.ts");
+
 
 
 
 
 let Tab1Page = class Tab1Page {
-    constructor(rauth, nav, menu) {
+    constructor(rauth, nav, menu, cashService) {
         this.rauth = rauth;
         this.nav = nav;
         this.menu = menu;
+        this.cashService = cashService;
+    }
+    ngOnInit() {
+        this.cashService.getExpenses().subscribe(res => {
+            this.expenses = res;
+        });
+    }
+    remove(item) {
+        this.cashService.removeExpenses(item.id);
     }
     openFirst() {
         this.menu.enable(true, 'first');
@@ -140,7 +151,8 @@ let Tab1Page = class Tab1Page {
 Tab1Page.ctorParameters = () => [
     { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__["AngularFireAuth"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["MenuController"] }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["MenuController"] },
+    { type: _cash_service__WEBPACK_IMPORTED_MODULE_4__["CashService"] }
 ];
 Tab1Page = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -148,7 +160,10 @@ Tab1Page = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./tab1.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/tab1/tab1.page.html")).default,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./tab1.page.scss */ "./src/app/tab1/tab1.page.scss")).default]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__["AngularFireAuth"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["MenuController"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__["AngularFireAuth"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["MenuController"],
+        _cash_service__WEBPACK_IMPORTED_MODULE_4__["CashService"]])
 ], Tab1Page);
 
 
