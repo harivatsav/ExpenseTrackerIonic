@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-content class=\"back\">\n  \n  <img src=\"/assets/icon/logo.jpeg\" class=\"logo\"> \n<br>\n\n\n<ion-text color=\"warning\"><h4 class=\"text\">Enter the required Fields</h4></ion-text>\n\n<br>\n\n<div class=\"sizeInput\">\n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter your First Name</ion-label>\n      <ion-input [(ngModel)]=\"user.firstName\" color=\"warning\" clearInput value=\"clear me\"></ion-input>\n  </ion-item>\n<br>\n\n  <div class=\"sizeInput\">\n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter your Last Name</ion-label>\n      <ion-input [(ngModel)]=\"user.lastName\" color=\"warning\" clearInput value=\"clear me\"></ion-input>\n  </ion-item>\n  \n<br>\n  <div class=\"sizeInput\">\n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter your Phone Number</ion-label>\n      <ion-input [(ngModel)]=\"user.phoneNumber\" color=\"warning\" clearInput value=\"clear me\"></ion-input>\n  </ion-item>\n\n\n<br>\n\n  <!-- <div class=\"sizeInput\"> -->\n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter your Email Id</ion-label>\n      <ion-input [(ngModel)]=\"user.email\" color=\"warning\" clearInput value=\"clear me\"></ion-input>\n  </ion-item>\n  \n<br>  \n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter a 6 digit password</ion-label>\n   <ion-input  type=\"password\" [(ngModel)]=\"user.password\" color=\"warning\"></ion-input>\n  </ion-item>\n  \n\n<div class=\"sizeButton\">\n<ion-button (click)=\"register()\" shape=\"round\" color=\"warning\" fill=\"outline\">Sign Up</ion-button>\n</div>\n\n\n\n\n\n";
+    __webpack_exports__["default"] = "<!-- <ion-back-button defaultHerf='login'></ion-back-button> -->\n<ion-content class=\"back\">\n  \n  <img src=\"/assets/icon/logo.jpeg\" class=\"logo\"> \n<br>\n\n\n<ion-text color=\"warning\"><h4 class=\"text\">Enter the required Fields</h4></ion-text>\n\n<br>\n\n<div class=\"sizeInput\">\n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter your First Name</ion-label>\n      <ion-input [(ngModel)]=\"user.firstName\" color=\"warning\" clearInput value=\"clear me\"></ion-input>\n  </ion-item>\n<br>\n\n  <div class=\"sizeInput\">\n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter your Last Name</ion-label>\n      <ion-input [(ngModel)]=\"user.lastName\" color=\"warning\" clearInput value=\"clear me\"></ion-input>\n  </ion-item>\n  \n<br>\n  <div class=\"sizeInput\">\n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter your Phone Number</ion-label>\n      <ion-input [(ngModel)]=\"user.phoneNumber\" color=\"warning\" clearInput value=\"clear me\"></ion-input>\n  </ion-item>\n\n\n<br>\n\n  <!-- <div class=\"sizeInput\"> -->\n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter your Email Id</ion-label>\n      <ion-input [(ngModel)]=\"user.email\" color=\"warning\" clearInput value=\"clear me\"></ion-input>\n  </ion-item>\n  \n<br>  \n  <ion-item class=\"input\">\n    <ion-label  position = \"floating\" color=\"warning\">Enter a 6 digit password</ion-label>\n   <ion-input  type=\"password\" [(ngModel)]=\"user.password\" color=\"warning\"></ion-input>\n  </ion-item>\n  \n\n<div class=\"sizeButton\">\n<ion-button (click)=\"register()\" shape=\"round\" color=\"warning\" fill=\"outline\">Sign Up</ion-button>\n<ion-button (click)=\"back()\" shape=\"round\" color=\"warning\" fill=\"outline\">Back</ion-button>\n\n</div>\n\n\n\n\n\n";
     /***/
   },
 
@@ -247,8 +247,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this = this;
 
           var user = this.rauth.auth.createUserWithEmailAndPassword(this.user.email, this.user.password).then(function () {
-            _this.nav.navigateRoot('login');
+            _this.nav.navigateRoot('');
           });
+        }
+      }, {
+        key: "back",
+        value: function back() {
+          this.nav.navigateBack('');
         }
       }]);
 

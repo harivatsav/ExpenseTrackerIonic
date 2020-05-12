@@ -246,16 +246,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var user = this.rauth.auth.signInWithEmailAndPassword(this.user.email, this.user.password).then(function () {
             _this.nav.navigateForward('tabs');
           });
-        }
-      }, {
-        key: "register",
-        value: function register() {
-          var _this2 = this;
-
-          var user = this.rauth.auth.createUserWithEmailAndPassword(this.user.email, this.user.password).then(function () {
-            _this2.nav.navigateRoot('login');
-          });
-        } // async toast() {
+        } // register(){
+        //   const user = this.rauth.auth.createUserWithEmailAndPassword(
+        //     this.user.email,
+        //     this.user.password).then(()=>{
+        //       this.nav.navigateRoot('login');
+        //       })
+        //     }
+        // async toast() {
         //     const toast = await this.toastctrl.create({
         //       message: 'err',
         //       duration: 2000
