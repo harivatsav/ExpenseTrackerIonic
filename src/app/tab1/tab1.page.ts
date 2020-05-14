@@ -4,7 +4,8 @@ import { NavController, MenuController } from '@ionic/angular';
 import { CashService, expenses } from '../cash.service';
 import { ActionSheetController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
-import { Tab2Page } from '../tab2/tab2.page';
+
+
 
 
 
@@ -16,7 +17,7 @@ import { Tab2Page } from '../tab2/tab2.page';
 export class Tab1Page implements OnInit {
   expenses: expenses[];
 
-  data:any;
+  public data:any;
   
 
   constructor(public rauth: AngularFireAuth, 
@@ -85,7 +86,7 @@ remove(item){
           }
         }
       ]
-    }).then(data => data.present())
+    }).then(data => data.present());
     
   }
 

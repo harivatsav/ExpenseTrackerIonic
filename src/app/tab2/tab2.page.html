@@ -13,7 +13,9 @@
     </ion-toolbar>
   </ion-header>
 
-<!-- <p> {{data.name1}}</p> -->
+  <p *ngIf="this.data" color="warning">Name:{{this.data.name1}}
+    <br>Dollars:{{this.data.name2}}
+    <br>Date:{{this.data.name3}}</p>
 
   
   

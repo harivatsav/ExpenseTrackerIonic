@@ -1,23 +1,29 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { NavController} from '@ionic/angular';
+import { Tab1Page } from '../tab1/tab1.page';
+
 
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss'],
-  // providers: [NavParams]
-})
-export class Tab2Page {
-
-  constructor(public nav:NavController, public navParams: NavParams, private route: ActivatedRoute) {}
-
-  // actiondata(){
-  //   let d = this.navParams.get('data.name1');
-  //   console.log(d);
-  // }
-
-
   
+})
+export class Tab2Page implements OnInit {
+
+  data:any=Tab1Page;
+  
+ name = setInterval(() => { this.data.data.name1; }, 1000)
+  
+
+ 
+
+ 
+  
+  
+  constructor(public nav:NavController) {}
+  ngOnInit(){
+    console.log(name);
+  }
 
 }
