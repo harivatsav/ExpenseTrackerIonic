@@ -45,4 +45,7 @@ export class SignUpPage implements OnInit {
         this.nav.navigateBack('');
       }
 
+
+     
+
 }

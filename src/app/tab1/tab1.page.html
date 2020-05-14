@@ -35,6 +35,17 @@
   
   </ion-item-sliding>
 
+  <p *ngIf="this.data" color="warning">Name:{{this.data.name1}}
+    <br>Dollars:{{this.data.name2}}
+    <br>Date:{{this.data.name3}}</p>
+  
+  <!-- <p *ngIf="this.data" color="warning">Name:{{this.data.name1}}
+    <br>Dollars:{{this.data.name2}}
+    <br>Date:{{this.data.name3}}</p>
+   -->
+
+ 
+
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button routerLink="/details" routerDirection="forward" color="warning">
     <ion-icon name="add"></ion-icon>
