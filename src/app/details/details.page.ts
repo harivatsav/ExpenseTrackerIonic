@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { expenses, CashService } from '../cash.service';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 @Component({
   selector: 'app-details',
@@ -16,11 +17,13 @@ export class DetailsPage implements OnInit {
     dated:new Date().getDate()
 }
 
+  photo:any;
   expensesId : any;
   
   constructor(private cashService:CashService, 
     private route: ActivatedRoute,
-    public nav:NavController) { }
+    public nav:NavController,
+    private camera: Camera) { }
 
   ngOnInit() {
   
@@ -47,6 +50,23 @@ export class DetailsPage implements OnInit {
             this.nav.navigateBack('tabs');
           })
         }
+      }
+
+
+      cam(){
+        const options: CameraOptions = {
+          quality: 100,
+          sourceType:this.camera.PictureSourceType.CAMERA,
+          destinationType: this.camera.DestinationType.DATA_URL,
+          encodingType: this.camera.EncodingType.JPEG,
+          mediaType: this.camera.MediaType.PICTURE
+        }
+        
+        this.camera.getPicture(options).then((imageData) => {
+         this.photo = 'data:image/jpeg;base64,' + imageData;
+        }, (err) => {
+         console.log(err);
+        });  
       }
 
 }

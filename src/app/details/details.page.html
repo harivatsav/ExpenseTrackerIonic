@@ -1,26 +1,32 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="toolcolor">
     <ion-buttons slot="start">
       <ion-back-button defaultHerf='/'></ion-back-button>
       </ion-buttons>
-    <ion-title>details</ion-title>
+    <ion-title>Record Your Expenses</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<ion-list>
+<ion-content class="back">
 
-  <ion-item>
+
+  <ion-item class="inputcolor">
     <ion-input placeholder="Expense" [(ngModel)]= "expenses.expense"></ion-input>
   </ion-item>
 
   
-<ion-item>
+<ion-item class="inputcolor">
     <ion-input placeholder="Dollars" [(ngModel)]= "expenses.dollars"></ion-input>
   </ion-item>
 
-  <ion-button (click)="saveExpenses()">Save</ion-button>
-</ion-list>
+  <ion-button (click)="saveExpenses()" expand="full" color="light">Save</ion-button>
+
+
+
+
+<ion-button (click)="cam()" expand="full" color="light">Take a picture of you Expense</ion-button>
+<img [src]="photo">
+
 
 
 </ion-content>

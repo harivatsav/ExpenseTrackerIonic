@@ -18,6 +18,7 @@ export class Tab1Page implements OnInit {
   expenses: expenses[];
 
   public data:any;
+  split:any=[];
   
 
   constructor(public rauth: AngularFireAuth, 
@@ -80,6 +81,7 @@ remove(item){
 
           handler: (data) => {
             this.data = data;
+            this.split.push(this.data);
             console.log(data.name1);
             console.log(data.name2);
             console.log(data.name3);

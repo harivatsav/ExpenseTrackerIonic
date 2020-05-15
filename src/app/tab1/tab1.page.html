@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="danger">
+  <ion-toolbar class="toolcolor">
     <ion-title>
-      Tab 1
+      My Expenses
     </ion-title>
     <ion-buttons slot="start">
       <ion-menu-button (click)="openFirst()" autoHide="false">
@@ -11,7 +11,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="back">
  
   
   <ion-item-sliding *ngFor="let item of expenses">
@@ -22,9 +22,9 @@
       </ion-item-option>
     </ion-item-options>
 
-    <ion-item>
+    <ion-item class="inputcolor">
       <ion-label button [routerLink]="['/details',item.id]">{{item.expense}}</ion-label>
-      <ion-text slot="end" color="warning">{{item.dollars}}$</ion-text>
+      <ion-text slot="end" color="danger">{{item.dollars}}$</ion-text>
     </ion-item>
 
     <ion-item-options side="end" (click)="presentAlertPrompt()">
@@ -35,9 +35,9 @@
   
   </ion-item-sliding>
 
-  <p *ngIf="this.data" color="warning">Name:{{this.data.name1}}
-    <br>Dollars:{{this.data.name2}}
-    <br>Date:{{this.data.name3}}</p>
+  <!-- <p *ngFor="let item of split" color="warning">Name:{{item.name1}}
+    <br>Dollars:{{item.name2}}
+    <br>Date:{{item.name3}}</p> -->
   
   <!-- <p *ngIf="this.data" color="warning">Name:{{this.data.name1}}
     <br>Dollars:{{this.data.name2}}
